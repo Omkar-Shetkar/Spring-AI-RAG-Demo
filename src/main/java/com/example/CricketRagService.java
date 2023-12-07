@@ -11,14 +11,16 @@ import org.springframework.ai.retriever.VectorStoreRetriever;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Service
 public class CricketRagService {
 
-    @Value("classpath:/system-news-prompt.st")
+    @Value("classpath:/cricket-news-prompt.st")
     private Resource systemNewsPrompt;
 
     private final AiClient aiClient;

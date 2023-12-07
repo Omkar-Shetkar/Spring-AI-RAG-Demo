@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CricketController {
 
-    private final AiClient aiClient;
+    private final CricketRagService cricketRagService;
 
-    public CricketController(AiClient aiClient) {
-        this.aiClient = aiClient;
+    public CricketController(CricketRagService cricketRagService) {
+        this.cricketRagService = cricketRagService;
     }
 
     @PostMapping(value = "/news", produces = "text/plain")
     public String getNews(@RequestBody Question question) {
-        return aiClient.generate(question.question());
+        return cricketRagService.generateResponse(question.question());
     }
 
 }
